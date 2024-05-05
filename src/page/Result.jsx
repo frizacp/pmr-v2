@@ -44,10 +44,16 @@ function Result() {
       {
         accessorKey: 'gender', //access nested data with dot notation
         header: 'GENDER',
+        filterFn: 'equals',
         size: 30,
+        filterSelectOptions: [
+          { label: 'Male', value: 'Male' },
+          { label: 'Female', value: 'Female' },
+        ],
+        filterVariant: 'select',
       },
       {
-        accessorKey: 'contest', //access nested data with dot notation
+        accessorKey: 'contest_category', //access nested data with dot notation
         header: 'CONTEST',
         size: 30,
       },
@@ -94,6 +100,8 @@ function Result() {
     columns,
     data: dataresult.data && dataresult.data.length > 0 ? dataresult.data : [],
     enableStickyHeader: true,
+    enableFilterMatchHighlighting: false,
+    columnFilterDisplayMode: 'popover',
 
     initialState: {
       pagination: { pageSize: 25 },
